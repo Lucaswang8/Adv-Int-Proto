@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Lucas's Brain</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="" />
+    
+        <!-- Font Awesome if you need it
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
+      -->
+        <link
+          href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+          rel="stylesheet"
+        />
+    
+        <link
+          href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css"
+          rel="stylesheet"
+        />
+    
+    
+        <style>
+          @import url("https://rsms.me/inter/inter.css");
+          html {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+              Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+              "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+              "Noto Color Emoji";
+          }
+    
+          .gradient {
+            background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
+          }
+    
+          button,
+          .gradient2 {
+            background-color: #f39f86;
+            background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+          }
+    
+          .browser-mockup {
+            border-top: 2em solid rgba(230, 230, 230, 0.7);
+            position: relative;
+            height: 60vh;
+          }
+    
+          .browser-mockup:before {
+            display: block;
+            position: absolute;
+            content: "";
+            top: -1.25em;
+            left: 1em;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 50%;
+            background-color: #f44;
+            box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+          }
+    
+          .browser-mockup > * {
+            display: block;
+          }
+    
+        </style>
+      </head>
+<body class="leading-relaxed tracking-wide flex flex-col">
+
+        <!--Nav-->
+        <nav id="header" class="w-full z-30 top-0 text-black py-1 lg:py-6">
+            <div
+              class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6"
+            >
+              <div class="pl-4 flex items-center">
+                <a
+                  class="text-black no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                  href="index.html"
+                >
+                  <svg
+                    class="h-6 w-6 inline-block fill-current text-yellow-700"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z" />
+                  </svg>
+                  Lucas's Brain
+                </a>
+              </div>
+      
+              <div class="block lg:hidden pr-4">
+                <button
+                  id="nav-toggle"
+                  class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-green-500 appearance-none focus:outline-none"
+                >
+                  <svg
+                    class="fill-current h-3 w-3"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                  </svg>
+                </button>
+              </div>
+      
+              <div
+                class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20"
+                id="nav-content"
+              >
+                <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                  <li class="mr-3">
+                    <a
+                      class="inline-block py-2 px-4 text-black font-bold no-underline"
+                      href="project1.html"
+                      >Project 1</a
+                    >
+                  </li>
+                  <li class="mr-3">
+                    <a
+                      class="inline-block text-black no-underline hover:text-gray-500 hover:text-underline py-2 px-4"
+                      href="#"
+                      >Project 2</a
+                    >
+                  </li>
+                  <li class="mr-3">
+                    <a
+                      class="inline-block text-black no-underline hover:text-gray-500 hover:text-underline py-2 px-4"
+                      href="#"
+                      >Project 3</a
+                    >
+                  </li>
+                </ul>
+                <button
+                  id="navAction"
+                  class="mx-auto lg:mx-0 hover:underline text-black font-extrabold rounded mt-4 lg:mt-0 py-4 px-8 shadow opacity-75"
+                >
+                  Final Project
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          <!--Hero Section-->
+
+          <div class="container mx-auto h-screen">
+            <div class="text-center px-3 lg:px-0 py-16">
+              <h1
+                class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"
+              >
+                Project 1 : Smart Berry Garden
+              </h1>
+              <p
+                class="leading-normal text-gray-500 text-base md:text-xl lg:text-2xl mb-8"
+              >
+                An interactive project where a berry garden notices the type of berries you like and grows more of it.
+              </p>
+      
+            </div>
+            
+            <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pb-8">Week 1 : Natural System Diagram </h2>
+            <div class="flex justify-start w-full mb-12">
+                <div
+                  class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"
+                ></div>
+              </div>
+      
+
+            <div class="flex flex-row flex-none items-start w-full">
+              <div class="w-screen">
+               <img src="/Project 1 Assets/Wk_1_SystemDiagram.png" class="">
+               <p class="py-4 text-gray-400">Version one of the ecosystem</p>
+              </div>
+
+              <div class="mx-16">
+                  <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Inspiration</h3>
+                  <p class="w-3/4"> I wanted to create an analogy using nature to represent privacy and data issues in our current world. Initially, my idea was to recreate
+                      the grocery shopping experience but it wasn't "natural". Hence, I started to find inspiration by looking back to how we get groceries before 
+                      industrialization. That was when I remembered about foraging. 
+                  </p>
+              </div>
+            </div>
+
+            <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pt-60 py-8">Week 2 : Revised Diagram </h2>
+            <div class="flex justify-start w-full mb-12">
+                <div
+                  class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"
+                ></div>
+              </div>
+      
+
+            <div class= "w-full">
+              <div class="flex flex-col items-center object-fit pb-16">
+               <img src="/Project 1 Assets/Wk_2_SystemDiagram.png" class="">
+               <p class="py-4 text-gray-400">Version 2 of the ecosystem</p>
+              </div>
+
+              <div class="mx-16">
+                  <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Revision</h3>
+                  <p class="w-3/4"> For week 2, I revised the system diagram according to the feedbacks in class. It grew to become more complex that when I started to code it,
+                    it turnt out to be harder than I imagined 
+                  </p>
+              </div>
+
+              <div class="flex flex-row items-start">
+                <div class="flex flex-col items-center mr-8 my-16">
+                <video width="screen" height="240" controls>
+                    <source src="/Project 1 Assets/WK_2_Code.mp4">
+                    Your browser does not support the video tag
+                </video>
+
+                <p>Coding the interaction for the falling fruits</p>
+                </div>
+
+                <div class="flex flex-col items-center mr-8 my-16">
+                <video width="screen" height="240" controls>
+                    <source src="/Project 1 Assets/WK_2_Code_2.mp4">
+                    Your browser does not support the video tag
+                </video>
+
+                <p>Coding the interaction for the basket interaction</p>
+                </div>
+              </div>
+          </div>
+
+          <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pt-60 pb-8">Week 3 : Simplifying System Diagram and Interactions</h2>
+            <div class="flex justify-start w-full mb-12">
+                <div
+                  class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"
+                ></div>
+            </div>
+        
+            <p class="w-3/4"> For week 3, I was unsatisfied with what I had for system. I wanted to go back to week 1 where it felt more like a privacy analogy than an actual game. 
+                So I changed the diagram to be more simpler but I wanted to add feedback based on user input. 
+            </p>
+
+            <div class= "w-full">
+                <div class="flex flex-col items-center object-fit pb-16">
+                 <img src="/Project 1 Assets/Wk_3_SystemDiagram.png" class="">
+                 <p class="py-4 text-gray-400">Version 3 of the ecosystem</p>
+            </div>
+
+            <div class="mx-16">
+                <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Coding Interactions</h3>
+                <p class="w-3/4 mb-6"> For week 3, I started by coding the objects and interactions first. 
+                </p>
+                <video class="w-screen" controls>
+                    <source src="/Project 1 Assets/WK_3_Code.mp4">
+                </video>
+            </div>
+
+        <!--Footer-->
+        <footer class="bg-white mt-60">
+            <div class="container mx-auto mt-8 px-8">
+              <div class="w-full flex flex-col md:flex-row py-6">
+                <div class="flex-1 mb-6">
+                  <a
+                    class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                    href="#"
+                  >
+                    <svg
+                      class="h-6 w-6 inline-block"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z" />
+                    </svg>
+                    Lucas's Brain
+                  </a>
+                </div>
+      
+                <div class="flex justify-end">
+      
+                  <ul class="list-reset mb-6">
+                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                      <a
+                        href="#"
+                        class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                        >FAQ</a
+                      >
+                    </li>
+                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                      <a
+                        href="#"
+                        class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                        >About Us</a
+                      >
+                    </li>
+                    <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                      <a
+                        href="#"
+                        class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                        >Contact</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+</body>
+</html>
