@@ -1,0 +1,21 @@
+1. Selecting the focus of a prototype is the art of identifying the most important open design questions
+
+In this book, the author discussed that they are four types of prototypes. Each of these type correspond to a design question that designers have about
+the project. As a designer, it cost money to create an "integration" model prototype that encompasses all the types. Hence, it is wiser to have a research objective, an open design questions and to start designing for it from there on.
+If you had a prototype that you want to know how users experience it, you would make a prototype that is more focused on look and feel. If you had a project you want to inspire or communicate the role of the idea acroos team, the role
+prototype will be a better option. Lastly, if you want to clarify the technological feasibilities of this project, you would be looking to create an implementation model prototype. To know what prototype to focus and build on, you 
+will first have to know what are answers are you tryining to get as a designer.
+
+
+2. Clarifying what aspects of a prototype correspond to the eventual artififact-and what don't- is a key part of succcessful prototyping.
+
+In order to not waste time on a prototype, designers have to be very clear about which part of the prototype is being used as a test and which parts does not belong to the final production. Some implementation models would design ui that
+is easy to navigate to by the developers but will not be implemented in the final design. Clarifying this not only to yourself but also to your users and organisation will make it a productive prototyping session as the others will be 
+less fixated on critiquing the parts that would not eventually make it and instead focus on what design question you are trying to ask from them. 
+
+
+3. To design well, designers must be willing to use different tools for different prototyping tasks; and to team up with other people with complementary skills. 
+
+Prototyping does not only mean creating a UI but based on the prototyping model, it could be a video that needs to be editted or a physical product that have to be molded or just having a working code of it. Through this, you'll have
+to work across disciplines to achieve a prototype of the fidelity and focus that you would want. You could also be working with other people who are more expert in specific types of prototype models to gain ideas on how to create prototypes
+that could answer your design questions well.
