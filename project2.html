@@ -150,17 +150,17 @@
           <h1
             class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"
           >
-            Project 1 : Smart Berry Garden
+            Project 2 : Spiral Pattern Generator
           </h1>
           <p
             class="leading-normal text-gray-500 text-base md:text-xl lg:text-2xl mb-8"
           >
-            An interactive project where a berry garden notices the type of berries you like and grows more of it.
+            An interactive project where you use processing to generate spiral patterns. 
           </p>
   
         </div>
         
-        <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pb-8">Week 1 : Natural System Diagram </h2>
+        <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pb-8">Week 1 : Coding the Generator with one external control </h2>
         <div class="flex justify-start w-full mb-12">
             <div
               class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"
@@ -168,20 +168,113 @@
           </div>
   
 
-        <div class="flex flex-row flex-none items-start w-full">
-          <div class="w-screen">
-           <img src="/proj_1_assets/wk_1_systemdiagram.jpg" class="">
-           <p class="py-4 text-gray-400">Version one of the ecosystem</p>
-          </div>
 
-          <div class="mx-16">
-              <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Inspiration</h3>
-              <p class="w-3/4"> I wanted to create an analogy using nature to represent privacy and data issues in our current world. Initially, my idea was to recreate
-                  the grocery shopping experience but it wasn't "natural". Hence, I started to find inspiration by looking back to how we get groceries before 
-                  industrialization. That was when I remembered about foraging. 
-              </p>
-          </div>
+        <div class="w-full">
+            <video class="w-full" controls>
+                <source src="/Adv-Int-Proto/proj_2_assets/spiralsystem.mp4">
+            </video>
+           <p class="py-4 text-gray-400">The initial code without external controls</p>
+        </div>
+
+
+
+        <div class="flex flex-row justify-between w-full py-28">
+            <div class="">
+                <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Inspiration</h3>
+                <p class="w-3/4"> I saw a tutorial regarding generative design and they were making a spiral generator so I tried out the coding exercise. However, they were using mouseX as 
+                  the way to interact with the spiral's form. It did not feel that intuitive for me hence I started to wonder if I could use the potentiometer and other controls to make a spiral pattern generator
+                  that I can reuse as a background for my visual designs.
+                </p>
+            </div>
+
+            <div class="w-full">
+             <img src="/Adv-Int-Proto/proj_2_assets/wk1_code.jpg" class="shadow-xl">
+             <p class="py-4 text-gray-400">Original Code</p>
+            </div>
+        </div>
+
+
+        <div class="flex flex-row justify-between w-full py-28">
+            <div class="w-full pr-28">
+                <video class="w-full" controls>
+                    <source src="/Adv-Int-Proto/proj_2_assets/replacemousex.MOV">
+                </video>
+            </div>
+
+            <div class="">
+                <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Version 1 : Replacing MouseX</h3>
+                <p class="w-3/4"> I was deciding whether I should replace the mouseX or the "2500" variable. I initially started by replacing mouseX with the serialnumber coming from the Potentiometer
+                </p>
+            </div>
+
+        </div>
+
+        <div class="flex flex-row justify-between w-full py-28">
+            <div class="">
+                <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Version 2 : Replacing Variable</h3>
+                <p class="w-3/4"> I found out that replacing mouseX still made the spiral move but it also reponded to the rotation interaction from the potentiometer. However, I wanted to control the motion entirely 
+                    hence I replaced the 2500 variable in the map feature instead. 
+                </p>
+            </div>
+
+
+            <div class="w-full pr-28">
+                <video class="w-full" controls>
+                    <source src="/Adv-Int-Proto/proj_2_assets/replace2500.MOV">
+                </video>
+            </div>
+
         </div>
     
+     <!--Footer-->
+     <footer class="bg-white mt-60">
+        <div class="container mx-auto mt-8 px-8">
+          <div class="w-full flex flex-col md:flex-row py-6">
+            <div class="flex-1 mb-6">
+              <a
+                class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                href="#"
+              >
+                <svg
+                  class="h-6 w-6 inline-block"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z" />
+                </svg>
+                Lucas's Brain
+              </a>
+            </div>
+  
+            <div class="flex justify-end">
+  
+              <ul class="list-reset mb-6">
+                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                  <a
+                    href="#"
+                    class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                    >FAQ</a
+                  >
+                </li>
+                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                  <a
+                    href="#"
+                    class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                    >About Us</a
+                  >
+                </li>
+                <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                  <a
+                    href="#"
+                    class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
 </body>
 </html>
