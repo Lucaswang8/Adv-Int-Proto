@@ -160,6 +160,7 @@
   
         </div>
         
+        <!--Week 1 Title-->
         <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pb-8">Week 1 : Coding the Generator with one external control </h2>
         <div class="flex justify-start w-full mb-12">
             <div
@@ -168,7 +169,7 @@
           </div>
   
 
-
+        <!-- Week 1 Video-->
         <div class="w-full">
             <video class="w-full" controls>
                 <source src="/Adv-Int-Proto/proj_2_assets/spiralsystem.mp4">
@@ -177,7 +178,7 @@
         </div>
 
 
-
+        <!-- Week 1 Inspiration Section-->
         <div class="flex flex-row justify-between w-full py-28">
             <div class="">
                 <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Inspiration</h3>
@@ -193,7 +194,7 @@
             </div>
         </div>
 
-
+        <!--Week 1 Version 1-->
         <div class="flex flex-row justify-between w-full py-28">
             <div class="w-full pr-28">
                 <video class="w-full" controls>
@@ -209,22 +210,123 @@
 
         </div>
 
+        <!-- Week 1 Version 2-->
         <div class="flex flex-row justify-between w-full py-28">
-            <div class="">
-                <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4">Version 2 : Replacing Variable</h3>
+            <div class="flex flex-col justify-between">
+                <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 ">Version 2 : Replacing Variable</h3>
                 <p class="w-3/4"> I found out that replacing mouseX still made the spiral move but it also reponded to the rotation interaction from the potentiometer. However, I wanted to control the motion entirely 
-                    hence I replaced the 2500 variable in the map feature instead. 
+                    hence I multiplied the potentiometer output with the wave variable. 
                 </p>
-            </div>
 
+                <img src="/Adv-Int-Proto/proj_2_assets/v2_code.jpg" class="shadow-xl w-3/4">
+
+            </div>
 
             <div class="w-full pr-28">
                 <video class="w-full" controls>
                     <source src="/Adv-Int-Proto/proj_2_assets/replace2500.MOV">
                 </video>
             </div>
+        </div>
+
+        <!--Week 2 Section-->
+        <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pb-8">Week 2 : Adding more controls </h2>
+            <div class=" justify-start w-full mb-12">
+                <div
+                  class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"
+                ></div>
+            </div>
+
+        <div class = "flex w-full">
+            <img src= "/Adv-Int-Proto/proj_2_assets/wk2_board.jpg" class="w-2/4 ">
+
+          <div class="ml-28 w-3/4 mt-8">
+            <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 ">Changing Colors</h3>
+            <p> I added 4 more controls so that I can adjust the color of the yellow stroke using HSB color mode. I also added a button to trigger noLoop() so that it will stop the spiral. I wanted to be able to screen capture the image. However, I wanted the button to resume the loop but it did not work. 
+            </p>
+          </div>
 
         </div>
+
+        <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 pt-36">Prototype Demo</h3>
+        <video class="w-full" controls>
+          <source src="/Adv-Int-Proto/proj_2_assets/wk2_video.mp4">
+        </video>
+
+
+        <!--Week 3 Section-->
+        <h2 class="leading-normal text-gray-800 text-base text-3xl font-bold pb-8 pt-36">Week 3 : Adding more controls and packaging </h2>
+        <div class=" justify-start w-full mb-12">
+           <div
+                  class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"
+          ></div>
+        </div>
+
+        <div class = "flex w-full">
+            <img src= "/Adv-Int-Proto/proj_2_assets/Wk3_Board.jpg" class="w-2/4 ">
+  
+          <div class="ml-28 w-3/4 mt-8">
+            <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 ">Controlling the other stroke</h3>
+            <p> I added one more button. Once the button is pressed, it will allow the HSB potentiometers to be used to control the other stroke that was initially white. This way, you can customise the spiral
+              to any colors you choose. I was initially confused on how to set this up. But using if statement and more variables, I was able to make it possible.
+  
+            </p>
+
+            <img src="/Adv-Int-Proto/proj_2_assets/wk3_code1.jpg" class="shadow-xl my-24 w-full">
+
+            <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 ">Saving Frame</h3>
+            <p> I also changed my noLoop() function to saveFrame. This lets me save my processing image. However, there seems to be an issue capturing. It saves the file but it is blank.
+            </p>
+
+            <img src="/Adv-Int-Proto/proj_2_assets/wk3_code2.jpg" class="shadow-xl my-24 w-3/4">
+          </div>
+        </div>
+
+
+        <div class = "flex w-full mt-36">
+          
+
+          <div class="mr-28 w-3/4 mt-8">
+            <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 ">Initial Sketch</h3>
+            <p> I drew this before thinking of adding more controls but I knew from playing with the controls on the bread board that the controls have to be spaced out on the left and right. This is so both 
+              hands can be used simultaneously to control it at ease. The controls can't block another hence only by aligning vertically can it work. 
+            </p>
+          </div>
+
+          <img src= "/Adv-Int-Proto/proj_2_assets/wk3_sketch.jpg" class="w-2/4 ">
+
+        </div>
+          
+
+        <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 mt-36 ">Final Package</h3>
+        <p> Initially, I thought that I will have a smaller box but my bread board did not fit. So I had to use a bigger box. Luckily, I had one lying around that was perfect. Thought I had to take out all the controllers
+          and figure out how to rewire them with female to male pins. Some even needed extensions like the button pins.
+        </p>
+        <div class=" mt-8 flex w-full">
+          <img src= "/Adv-Int-Proto/proj_2_assets/Wk3_Package.jpg" class="w-2/4 mr-8">
+          <img src= "/Adv-Int-Proto/proj_2_assets/Wk3_PackageIns.jpg" class="w-2/4 ">
+        </div>
+
+
+        <h3 class="text-base leading-normal lg:text-3xl font-medium mb-4 pt-36">Packaging Process</h3>
+        <video class="w-3/4" controls>
+          <source src="/Adv-Int-Proto/proj_2_assets/Wk3_Packaging.MOV">
+        </video>
+
+        <h3 class="leading-normal text-gray-800 text-base text-3xl font-bold pb-8 pt-36">Final Result</h3>
+        <div class=" justify-start w-full mb-12">
+          <div
+                 class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"
+         ></div>
+       </div>
+        
+        <video class="w-full" controls>
+          <source src="/Adv-Int-Proto/proj_2_assets/final.MOV">
+        </video>
+
+        
+
+
     
      <!--Footer-->
      <footer class="bg-white mt-60">
