@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let baseURL = "https://api.particle.io/v1/devices/39001f000547393035313139/";
+        let token = "?access_token=a7206f5938f6102451c11a2504b185052fa8318b";
+        let param1 = "analog1";
+        let param2 = "analog2"; //1 param pers sensor reading
+        let param3 = "digital1";
+        let param4 = "digital2";
+        let data1URL = baseURL + param1 + token; //for 
+        let data2URL = baseURL + param2 + token; //for 
+        let data3URL = baseURL + param3 + token; //for 
+        let data4URL = baseURL + param4 + token; //for 
+
+        //TIMER vars:
+        let currentFactor, prevFactor;
+        let timeInterval = 500;
+        let whichParam = 1;
+        let numbofParams = 4; //number of sensors you have
+
+        //readout vars: 
+        let anaReadout = 0;
+        let ana2Readout = 0;
+        let digReadout = 0;
+        let dig2Readout = 0;
+
+        let prevDig2Readout = 0;
+        let drips = [];
+
+        function setup() {
+            createCanvas(1000, 1000);
+            currentFactor = 0;
+            prevFactor = 0;
+            //background(10)
+        }
+
+        //When dig1Readout is on, the function draws
+        // the mic determines x and y of paint splat
+        // motion will draw the paint
+        // range of colors is determined by loudness of mic
+
+        function draw() {
+            background(255);
+            if (dig2Readout > prevDig2Readout){
+                drips.push(new Drip(anaReadout, ana2Readout, 50));
+            }
+
+            if (dig2Readout == 1) {
+                drips[drips.length - 1].grow();
+                
+            }
+
+
+            for (let i = 0; i < drips.length; i++) {
+                drips[i].move();
+                drips[i].show();
+                if (drips[i].y > height) {
+                    drips.splice(i, 1);
+                }
+            }
+            fill(255);
+
+
+
+            // photon code
+            currentFactor = millis() % timeInterval;
+            if (currentFactor < prevFactor) { //passed an interval
+                if (whichParam == 1) {
+                    loadJSON(data1URL, dataHandle, errorHandle);
+                } else if (whichParam == 2) {
+                    loadJSON(data2URL, dataHandle, errorHandle);
+                } else if (whichParam == 3) {
+                    loadJSON(data3URL, dataHandle, errorHandle);
+                } else {
+                    loadJSON(data4URL, dataHandle, errorHandle);
+                }
+                whichParam++;
+                if (whichParam == numbofParams + 1) {
+                    whichParam = 1;
+                }
+
+            }
+
+            prevFactor = currentFactor; //prep for the next Frame
+            prevDig2Readout = dig2Readout;
+
+        }
+
+
+
+        class Drip {
+            constructor(x, y, size) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.color = color(random(255), random(255), random(255), 100);
+            }
+            move() {
+                this.y += 1;
+                //if (this.size > 15) this.size *= .97;
+            }
+            grow() {
+                this.size += 10;
+                this.y -= 0.8;
+                //this.color = color(random(255), random(255), random(255), 10);
+            }
+            show() {
+                noStroke();
+                fill(this.color);
+                ellipse(this.x, this.y, this.size, this.size);
+            }
+        }
+
+
+
+        function dataHandle(JSONdata) {
+            console.log(JSONdata);
+            if (JSONdata.name === "analog1") { //do something with the data here
+                anaReadout = map(parseInt(JSONdata, result), 0, 4096, 20, width-20)
+                console.log("analogue 1 " + anaReadout);
+
+            } else if (JSONdata.name === "analog2") {
+                ana2Readout = map(parseInt(JSONdata.result), 0, 4096, 20, height-20)
+                console.log("analogue 2 " + ana2Readout);
+
+            } else if (JSONdata.name === "digital1") {
+                digReadout = parseInt(JSONdata.result)
+            } else {
+                dig2Readout = parseInt(JSONdata.result)
+            }
+
+
+        }
+
+        function errorHandle(ErrorData) {
+            console.log("Error has occurred: " + Error);
+        }
+    </script>
+</body>
+
+</html>
