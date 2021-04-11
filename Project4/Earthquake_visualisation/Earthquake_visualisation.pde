@@ -11,7 +11,7 @@ PShape globe;
 
 void setup() {
   size(600,600, P3D);
-  earth = loadImage("earth_lights.jpg");
+  earth = loadImage("earth2.jpg");
   //table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.csv", "header");
   table = loadTable("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv", "header");
   
@@ -22,11 +22,11 @@ void setup() {
 
 
 void draw() {
-  background(51);
+  background(0);
   //image(earth,0,0);
   translate(width*0.5, height*0.5);
   rotateY(angle);
-  angle += 0.01;
+  angle += 0.05;
   
   lights();
   fill(200);
@@ -38,13 +38,13 @@ void draw() {
     float lat = row.getFloat("latitude");
     float lon = row.getFloat("longitude");
     float mag = row.getFloat("mag");
-    println(lat,lon,mag);
+
     
-    float theta = radians(lan) + PI/2;
+    float theta = radians(lat);
     float phi = radians(lon) + PI;
-    float x = r * sin(theta) * cos(phi);
-    float y = r * sin(theta) * sin(phi);
-    float z = r * cos(theta);
+    float x = r * cos(theta) * cos(phi);
+    float y = -r * sin(theta);
+    float z = -r * cos(theta) * sin(phi);
     PVector pos = new PVector(x,y,z);
     
     float h = pow(10, mag);
