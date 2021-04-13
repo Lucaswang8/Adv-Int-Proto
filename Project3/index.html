@@ -20,6 +20,7 @@
             justify-content: center;
             align-items: center;
         }
+        
     </style>
 </head>
 
@@ -102,7 +103,6 @@
                 if (whichParam == numbofParams + 1) {
                     whichParam = 1;
                 }
-
             }
 
             prevFactor = currentFactor; //prep for the next Frame
@@ -111,13 +111,13 @@
         }
 
 
-
         class Drip {
             constructor(x, y, size) {
                 this.x = x;
                 this.y = y;
                 this.size = size;
                 this.color = color(random(255), random(255), random(255), 100);
+
             }
             move() {
                 this.y += 1;
@@ -136,7 +136,6 @@
         }
 
 
-
         function dataHandle(JSONdata) {
             console.log(JSONdata);
             if (JSONdata.name === "analog1") { //do something with the data here
@@ -152,9 +151,8 @@
             } else {
                 dig2Readout = parseInt(JSONdata.result)
             }
-
-
         }
+
 
         function errorHandle(ErrorData) {
             console.log("Error has occurred: " + Error);

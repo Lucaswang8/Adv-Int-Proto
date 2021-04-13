@@ -1,13 +1,21 @@
+import processing.serial.*;
 
+Serial myConnection;
 
 float angle;
+float angleX;
 float r = 200;
 
 Table table;
 
 PImage earth;
 PShape globe;
-float rSpeed;
+
+float showData = 0;
+float rSpeed = 0;
+float upSpeed = 0;
+float buttonState = 0;
+float prevrSpeed;
 
 void setup() {
   size(600, 600, P3D);
@@ -20,6 +28,10 @@ void setup() {
   globe.setTexture(earth);
   
   colorMode(HSB,360,100,100,100);
+  
+  printArray(Serial.list());
+  myConnection = new Serial(this, Serial.list()[0], 9600);
+  myConnection.bufferUntil('\n');
 }
 
 
@@ -34,8 +46,12 @@ void draw() {
   //image(earth,0,0);
   translate(width*0.5, height*0.5);
   rotateY(angle);
-  rSpeed = map(mouseX, 0, 600, 0,0.1);
+  rSpeed = map(mouseX, 0, 600, 0, 0.1);
   angle += rSpeed;
+  //rotateX(angleX);
+  //upSpeed = map(mouseY, 0,600,0,0.1);
+  //angleX += upSpeed;
+  
 
 
 
@@ -72,9 +88,9 @@ void draw() {
     float magHue = map(mag, 0,7,23,360);
     fill(magHue, 100,100,100);
     
-    float pot = map(mouseX, 0, 600, 0, 7);
+
     //seeing data of different mag
-      if (mag > pot) {
+      if (mag > showData) {
         fill(magHue, 100, 100, 1);
       }
     
@@ -86,4 +102,40 @@ void draw() {
     //fill(255);  
     //text(pot, 10, 10,10);
   }
+}
+
+void serialEvent(Serial conn) {
+  String fromSerial = conn.readString();
+  //spiralMap = float(fromSerial);
+
+  if (fromSerial != null) {
+
+    String[] data = split(fromSerial, ',');
+    printArray(data);
+
+    if (data.length == 2) {
+      //button controls the pause and play of the rotation
+      buttonState = float(data[0]);
+
+      //pot1 controls the datas
+      showData = float(data[1]);
+      showData = map(showData, 16, 4096, 0, 7);
+
+
+
+      if (buttonState == 1) {
+        
+        prevrSpeed = rSpeed;
+        rSpeed = 0;
+      }
+      
+      else {
+        rSpeed = prevrSpeed;
+      }
+    }
+  }
+
+
+
+  println( fromSerial );
 }

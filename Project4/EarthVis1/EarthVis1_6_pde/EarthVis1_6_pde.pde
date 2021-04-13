@@ -1,13 +1,19 @@
+import processing.serial.*;
 
+Serial myConnection;
 
-float angle;
+float angleX = 0;
+float angleY = 0;
+float zoom = 0;
 float r = 200;
 
 Table table;
 
 PImage earth;
 PShape globe;
-float rSpeed;
+
+float showData = 0;
+float buttonState = 0;
 
 void setup() {
   size(600, 600, P3D);
@@ -20,6 +26,10 @@ void setup() {
   globe.setTexture(earth);
   
   colorMode(HSB,360,100,100,100);
+  
+  printArray(Serial.list());
+  myConnection = new Serial(this, Serial.list()[0], 9600);
+  myConnection.bufferUntil('\n');
 }
 
 
@@ -32,11 +42,11 @@ void draw() {
   println(mouseX, mouseY);
 
   //image(earth,0,0);
-  translate(width*0.5, height*0.5);
-  rotateY(angle);
-  rSpeed = map(mouseX, 0, 600, 0,0.1);
-  angle += rSpeed;
+  translate(width*0.5, height*0.5, zoom);
 
+  println("angle : " + angleX);
+  rotateY(angleX);
+  rotateX(angleY);
 
 
   lights();
@@ -72,9 +82,9 @@ void draw() {
     float magHue = map(mag, 0,7,23,360);
     fill(magHue, 100,100,100);
     
-    float pot = map(mouseX, 0, 600, 0, 7);
+
     //seeing data of different mag
-      if (mag > pot) {
+      if (mag < showData) {
         fill(magHue, 100, 100, 1);
       }
     
@@ -86,4 +96,51 @@ void draw() {
     //fill(255);  
     //text(pot, 10, 10,10);
   }
+}
+
+void serialEvent(Serial conn) {
+  String fromSerial = conn.readString();
+  //spiralMap = float(fromSerial);
+
+  if (fromSerial != null) {
+
+    String[] data = split(fromSerial, ',');
+    printArray(data);
+
+    if (data.length == 4) {
+      //button controls the pause and play of the rotation
+
+      //data[1,2,3,4] = a0,1,2,3 potentiometer
+      //pot1 controls the rotation  along X 
+      angleX = float(data[0]);
+      angleX = map(angleX, 0, 4096, 0, 2*PI);
+      
+      //pot2 controls the rotation along Y
+      angleY = float(data[1]);
+      angleY = map(angleY, 0, 4096, 0, 2*PI);
+
+      //pot3 controls the showing of data
+      showData = float(data[2]);
+      showData = map(showData, 0, 4096, 0, 7);
+
+      //pot4 controsl the zooming in of the data
+      zoom = float(data[3]);
+      zoom = map(zoom, 0, 4096, 0, 250);
+      
+
+      //if (buttonState == 1) {
+        
+      //  prevrSpeed = rSpeed;
+      //  rSpeed = 0;
+      //}
+      
+      //else {
+      //  rSpeed = prevrSpeed;
+      //}
+    }
+  }
+
+
+
+  println( fromSerial );
 }
