@@ -85,7 +85,7 @@ void draw() {
     
      textSize(21);
      fill(245, 66, 90);
-     text("Strawberries: " + rasppoints, 10, 85);
+     text("Strawberries: " + strawpoints, 10, 85);
   }
    
 }
